@@ -1,0 +1,63 @@
+{
+  "name": "nodetopicss",
+  "version": "1.0.0",
+  "description": "Minimalist boilerplate for Node.js — designed for vertical and horizontal scalability. Zero bloat, cluster-ready, production-first.",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "cross-env NODE_ENV=production node src/index.js",
+    "start:cluster": "cross-env NODE_ENV=production CLUSTER=true node src/index.js",
+    "start:pm2": "pm2 start pm2.config.cjs",
+    "stop:pm2": "pm2 delete pm2.config.cjs",
+    "test": "node --test",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "boilerplate",
+    "starter",
+    "express",
+    "api",
+    "rest",
+    "cluster",
+    "scalability",
+    "microservice",
+    "minimalist",
+    "esm",
+    "jwt",
+    "server"
+  ],
+  "author": "breezesolicitormap",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breezesolicitormap/NodeTopicss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/breezesolicitormap/NodeTopicss/issues"
+  },
+  "homepage": "https://github.com/breezesolicitormap/NodeTopicss#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pino": "^9.3.2",
+    "pino-http": "^10.2.0",
+    "pino-pretty": "^11.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3"
+  }
+}
