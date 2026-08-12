@@ -43,10 +43,12 @@ if command -v docker &> /dev/null; then
     docker compose up -d --build
 fi
 
-# 6. Reload PM2 services (zero-downtime)
-if command -v pm2 &> /dev/null; then
+# 6. Reload PM2 services
+if command -v pm2 &> /dev/null && [ -f "ecosystem.config.js" ]; then
     echo "Reloading PM2..."
     pm2 reload all --update-env || pm2 start ecosystem.config.js
+else
+    echo "Skipping PM2 (no ecosystem.config.js found)..."
 fi
 
 # 7. Reload Nginx to apply any routing changes
